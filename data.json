@@ -8,5 +8,52 @@
   },
   "career":{
     "info":"I am seeking a competitive and challenging environment where I can serve your organization and establish a career for myself."
+  },
+  "education":[{
+    "degree":"B.tech",
+    "institute":"SRKR",
+    "date":["2017-2020","88%"]
+  },
+  {
+    "degree":"diploma",
+    "institute":"andhrapolytechnic ",
+    "date":["2014-2017","88%"]
+  },
+
+  {
+    "degree":"ssc",
+    "institute":"vidyavikas ",
+    "date":["2013-2014","88%"]
   }
+],
+"keyskills":[
+  {
+    "title":"programming languages :",
+    "info":["c,c++,java,python,ruby"]
+  },
+  {
+    "title":"operating systems:",
+    "info":["windows,linux,mac,ubuntu,dos"]
+  },
+  {
+    "title":"databases:",
+    "info":["oracle,sql,mysql"]
+  }
+],
+"achievements":[
+  {
+    "title":" guinnessbook",
+    "info":"entered into guinnessbook"
+  },
+
+  {
+    "title":"racing",
+    "info":"i got 10lakh cash prize in bike racing"
+  },
+
+  {
+    "title":"google",
+    "info":"i am ceo of google"
+  }
+]
   }

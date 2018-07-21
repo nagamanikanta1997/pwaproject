@@ -15,6 +15,9 @@ var data = JSON.parse(text);
 console.log(data);
 basics(data.details);
 careerinfo(data.career);
+education(data.education);
+skillset(data.keyskills);
+achieve(data.achievements)
 })
 
 var child1 = document.querySelector(".child1");
@@ -64,3 +67,74 @@ function careerinfo(car){
   child2.appendChild(info);
 
 }
+
+function education(edu){
+  var ed = document.createElement("h2");
+  ed.textContent = "Education Qualifications:";
+  child2.appendChild(ed);
+
+  var hr = document.createElement("hr");
+  child2.appendChild(hr);
+
+  for(i=0;i<edu.length;i++){
+    var deg = document.createElement("h4");
+    deg.textContent = edu[i].degree;
+    child2.appendChild(deg);
+
+    var ul = document.createElement("ul");
+    var li = document.createElement("li");
+    li.textContent = edu[i].institute;
+    ul.appendChild(li);
+    child2.appendChild(ul);
+
+    var li2 = document.createElement("li");
+    li2.textContent = edu[i].date;
+    ul.appendChild(li2);
+    child2.appendChild(ul);
+  }
+}
+
+
+function skillset(skillinfo){
+  var ke = document.createElement("h2");
+  ke.textContent = "Key Skills:";
+  child2.appendChild(ke);
+
+  var hr = document.createElement("hr");
+  child2.appendChild(hr);
+
+
+    var skilldata = document.createElement("table");
+    skilldata.border= "1";
+    child2.appendChild(skilldata);
+
+    tabledata = "";
+    for (var i = 0; i < skillinfo.length; i++) {
+      tabledata  += "<tr><td>"+skillinfo[i].title+"</td><td>"+skillinfo[i].info+"</td></tr>";
+    }
+    skilldata.innerHTML = tabledata;
+
+
+  }
+
+
+  function achieve(ach){
+    var ac = document.createElement("h2");
+    ac.textContent = "Achievements:";
+    child2.appendChild(ac);
+
+    var hr = document.createElement("hr");
+    child2.appendChild(hr);
+
+
+        var achdata = document.createElement("table");
+        achdata.border= "1";
+        child2.appendChild(achdata);
+
+        tabledata = "";
+        for (var i = 0; i < ach.length; i++) {
+          tabledata  += "<tr><td>"+ach[i].title+"</td><td>"+ach[i].info+"</td></tr>";
+        }
+        achdata.innerHTML = tabledata;
+    
+  }
