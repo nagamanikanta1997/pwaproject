@@ -158,3 +158,7 @@ function skillset(skillinfo){
         achdata.innerHTML = tabledata;
 
   }
+  function openpage() {
+
+    window,open("resume.html","_self","true")
+  }
