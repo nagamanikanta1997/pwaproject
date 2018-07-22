@@ -1,25 +1,45 @@
-function Loadjson(file,callback) {
-  var x = new XMLHttpRequest();
-  x.overrideMimeType("application/json");
-  x.open("GET",file,true);
-  x.onreadystatechange=function(){
-    if(x.readyState===4 && x.status == "200"){
-      callback(x.responseText);
-    }
-  };
-  x.send(null);
+// function Loadjson(file,callback) {
+//   var x = new XMLHttpRequest();
+//   x.overrideMimeType("application/json");
+//   x.open("GET",file,true);
+//   x.onreadystatechange=function(){
+//     if(x.readyState===4 && x.status == "200"){
+//       callback(x.responseText);
+//     }
+//   };
+//   x.send(null);
+// }
+//
+// Loadjson("data.json",function(text){
+// var data = JSON.parse(text);
+// console.log(data);
+// basics(data.details);
+// careerinfo(data.career);
+// education(data.education);
+// skillset(data.keyskills);
+// achieve(data.achievements)
+// })
+function Loadjson(file) {
+  return new Promise((resolve,reject)=>{
+    return fetch(file).then(response=>{
+      if(response.ok){
+        resolve(response.json());
+      }else{
+      reject(new Error('error')) ;
+      }
+    })
+  })
+
 }
-
-Loadjson("data.json",function(text){
-var data = JSON.parse(text);
-console.log(data);
-basics(data.details);
-careerinfo(data.career);
-education(data.education);
-skillset(data.keyskills);
-achieve(data.achievements)
+var file= Loadjson("data.json");
+file.then(data=>{
+  console.log(data);
+  basics(data.details);
+  careerinfo(data.career);
+  education(data.education);
+  skillset(data.keyskills);
+  achieve(data.achievements)
 })
-
 var child1 = document.querySelector(".child1");
 
 function basics(det){
@@ -136,5 +156,5 @@ function skillset(skillinfo){
           tabledata  += "<tr><td>"+ach[i].title+"</td><td>"+ach[i].info+"</td></tr>";
         }
         achdata.innerHTML = tabledata;
-    
+
   }
